@@ -108,3 +108,13 @@ packages/
 │  │  │  │  ├─ libraries/
 │  │  │  ├─ <my-library>.dart
 ```
+
+## Lints
+
+<details>
+  <summary>group_alf</summary>
+
+  - Ensures that files are placed and named according to the alf-linting conventions. Files should either
+    - be a valid entry point placed in `lib/` or `bin/` directory and named `main.dart`, `main_<flavor>.dart` or `<packageName>.dart`
+    - or placed within the `app`, `libraries` or `features` folder contained in the `lib/` or `lib/src/` folder.
+</details>
