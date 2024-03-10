@@ -1,7 +1,7 @@
-import 'package:alf_lints/src/libraries/constants/folders.dart';
+import 'package:alf_lints/src/libraries/file_path/file_domain.dart';
 import 'package:alf_lints/src/libraries/file_path/get_relative_package_path.dart';
 import 'package:alf_lints/src/libraries/file_path/is_entry_point_path.dart';
-import 'package:alf_lints/src/libraries/file_path/is_path_of_type.dart';
+import 'package:alf_lints/src/libraries/file_path/is_path_of_domain.dart';
 import 'package:analyzer/error/listener.dart';
 import 'package:custom_lint_builder/custom_lint_builder.dart';
 
@@ -28,9 +28,9 @@ Name entry point `main.dart`, `main_<flavor>.dart` or `<package-name>.dart`.''',
     final relativePath = getRelativePackagePath(fullPath);
 
     if (isEntryPointPath(fullPath, packageName: context.pubspec.name)) return;
-    if (isPathOfType(relativePath, Folders.features)) return;
-    if (isPathOfType(relativePath, Folders.libraries)) return;
-    if (isPathOfType(relativePath, Folders.app)) return;
+    if (isPathOfDomain(relativePath, FileDomain.features)) return;
+    if (isPathOfDomain(relativePath, FileDomain.libraries)) return;
+    if (isPathOfDomain(relativePath, FileDomain.app)) return;
 
     bool reported = false;
     context.registry.addAnnotatedNode((node) {

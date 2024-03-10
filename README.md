@@ -118,3 +118,8 @@ packages/
     - be a valid entry point placed in `lib/` or `bin/` directory and named `main.dart`, `main_<flavor>.dart` or `<packageName>.dart`
     - or placed within the `app`, `libraries` or `features` folder contained in the `lib/` or `lib/src/` folder.
 </details>
+<details>
+  <summary>group_libraries</summary>
+
+  - Ensures that files within the `libraries` folder are grouped into another folder.
+</details>
