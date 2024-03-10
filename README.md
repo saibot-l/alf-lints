@@ -1,39 +1,110 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
-
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages). 
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+Opinionated Dart lints to maintain a clean folder structure.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+- Ensures code is split into
+  - **a**pp: composes features and libraries
+  - **l**ibraries: shared libraries usable by the app itself and features
+  - **f**eatures: stand-alone features usable by the app itself
+- Supports monorepos
 
-## Getting started
+## Installation
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+1. Add [alf_lints](https://pub.dev/packages/alf_lints) and [custom_lint](https://pub.dev/packages/custom_lint) to your `pubspec.yaml`:
+   ```yaml
+   dev_dependencies:
+     alf_lints:
+     custom_lint:
+   ```
+2. Enable [custom_lint](https://pub.dev/packages/custom_lint) in your `analysis_options.yaml`:
+   ```yaml
+   analyzer:
+     plugins:
+       - custom_lint
+   ```
 
-## Usage
+## Application structure
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
+This linter proposes a folder structure containing
 
-```dart
-const like = 'sample';
+- `entry points`:
+  - Starting point(s) of the application
+  - Should be named `main.dart`, `main_<flavor>` or `<package-name>.dart`.
+  - Can not be imported
+  - Can only import from
+    - `app`
+    - `features`
+    - `libraries`
+- `app` folder:
+  - Composes features and libraries and bundles them into the actual application
+  - Can only be imported from
+    - `entry points`
+  - Can only import from
+    - `app`
+    - `features`
+    - `libraries`
+- `features` folder:
+  - Isolated features not dependent on each other
+  - Can only be imported from
+    - `app`
+    - `entry points`
+  - Can only import from
+    - `libraries`
+- `libraries` folder:
+  - Collections of shared code
+  - A library is always grouped in a directory
+  - Can only be imported from
+    - `app`
+    - `entry points`
+    - `features`
+    - `libraries`
+  - Can only import from
+    - `libraries`
+
+The actual file structure should look something like this:
+
+```
+<my-appplication>/
+├─ bin/
+│  ├─ <entry-point>.dart
+├─ lib/
+│  ├─ src/
+│  │  ├─ app/
+│  │  ├─ features/
+│  │  ├─ libraries/
+│  ├─ <entry-point>.dart
 ```
 
-## Additional information
+### Monorepo
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+It is also possible to structure your project with local packages:
+
+```
+apps/
+├─ <my-app>/
+│  ├─ bin/
+│  │  ├─ <entry-point>.dart
+│  ├─ lib/
+│  │  ├─ src/
+│  │  │  ├─ app/
+│  │  │  ├─ features/
+│  │  │  ├─ libraries/
+│  │  ├─ <entry-point>.dart
+packages/
+├─ features/
+│  ├─ <my-feature>/
+│  │  ├─ lib/
+│  │  │  ├─ src/
+│  │  │  │  ├─ app/
+│  │  │  │  ├─ features/
+│  │  │  │  ├─ libraries/
+│  │  │  ├─ <my-feature>.dart
+├─ libraries/
+│  ├─ <my-library>/
+│  │  ├─ lib/
+│  │  │  ├─ src/
+│  │  │  │  ├─ app/
+│  │  │  │  ├─ features/
+│  │  │  │  ├─ libraries/
+│  │  │  ├─ <my-library>.dart
+```
