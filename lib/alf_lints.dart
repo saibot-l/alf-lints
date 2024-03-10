@@ -1,8 +1,11 @@
-/// Support for doing something awesome.
-///
-/// More dartdocs go here.
-library;
+import 'package:alf_lints/src/features/group_alf_lint.dart';
+import 'package:custom_lint_builder/custom_lint_builder.dart';
 
-export 'src/alf_lints_base.dart';
+PluginBase createPlugin() => _AlfLinter();
 
-// TODO: Export any libraries intended for clients of this package.
+class _AlfLinter extends PluginBase {
+  @override
+  List<LintRule> getLintRules(CustomLintConfigs configs) => [
+        GroupAlfLint(),
+      ];
+}
