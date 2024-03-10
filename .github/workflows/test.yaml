@@ -1,5 +1,4 @@
 name: Test
-run-name: Testing "${{ github.ref_name }}" 🕵️
 on: [push]
 jobs:
   test:
