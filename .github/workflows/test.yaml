@@ -28,3 +28,4 @@ jobs:
         run: dart analyze --fatal-infos
       - name: Run custom_lint
         run: custom_lint
+        if: matrix.package_path != '.'
