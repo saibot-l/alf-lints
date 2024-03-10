@@ -9,8 +9,6 @@ jobs:
       - uses: dart-lang/setup-dart@v1
       - name: Install dependencies
         run: dart pub get
-      - name: Activate custom_lint cli
-        run: dart pub global activate custom_lint
       - name: Verify formatting
         run: dart format --output=none --set-exit-if-changed .
       - name: Analyze project source
