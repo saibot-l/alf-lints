@@ -9,7 +9,7 @@ void main() {
         getRelativePackagePath(
           '.../invalid/features/example_feature.dart',
         ),
-        equals(null),
+        isNull,
       );
     });
 
