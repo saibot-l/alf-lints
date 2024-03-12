@@ -95,17 +95,11 @@ packages/
 │  ├─ <my-feature>/
 │  │  ├─ lib/
 │  │  │  ├─ src/
-│  │  │  │  ├─ app/
-│  │  │  │  ├─ features/
-│  │  │  │  ├─ libraries/
 │  │  │  ├─ <my-feature>.dart
 ├─ libraries/
 │  ├─ <my-library>/
 │  │  ├─ lib/
 │  │  │  ├─ src/
-│  │  │  │  ├─ app/
-│  │  │  │  ├─ features/
-│  │  │  │  ├─ libraries/
 │  │  │  ├─ <my-library>.dart
 ```
 
