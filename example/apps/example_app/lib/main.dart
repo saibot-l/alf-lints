@@ -1,4 +1,4 @@
-import 'package:example_app/src/app/routes.dart';
+import 'src/app/routes.dart';
 
 class Main {
   final Routes routes;

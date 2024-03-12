@@ -1,9 +1,10 @@
-import 'package:alf_lints/src/libraries/file_path/file_domain.dart';
-import 'package:alf_lints/src/libraries/file_path/get_relative_package_path.dart';
-import 'package:alf_lints/src/libraries/file_path/is_entry_point_path.dart';
-import 'package:alf_lints/src/libraries/file_path/is_path_of_domain.dart';
 import 'package:analyzer/error/listener.dart';
 import 'package:custom_lint_builder/custom_lint_builder.dart';
+
+import '../libraries/file_path/file_domain.dart';
+import '../libraries/file_path/get_relative_package_path.dart';
+import '../libraries/file_path/is_entry_point_path.dart';
+import '../libraries/file_path/is_path_of_domain.dart';
 
 class GroupAlfLint extends DartLintRule {
   const GroupAlfLint() : super(code: _code);
