@@ -124,6 +124,12 @@ packages/
 </details>
 
 <details>
+  <summary>avoid_import_entry_point</summary>
+
+  - Ensures that no code imports entry points.
+</details>
+
+<details>
   <summary>group_alf</summary>
 
   - Ensures that files are placed and named according to the alf-linting conventions. Files should either

@@ -5,6 +5,13 @@ void main() {
   group('isEntryPointPath', () {
     const packageName = 'some_package_name';
 
+    test('should return `false` when the full path is `null`', () {
+      expect(
+        isEntryPointPath(null, packageName: packageName),
+        isFalse,
+      );
+    });
+
     test(
         'should return `false` when the full path does not point to a valid entry point',
         () {

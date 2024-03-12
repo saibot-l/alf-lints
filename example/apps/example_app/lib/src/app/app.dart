@@ -1,8 +1,8 @@
 // expect_lint: avoid_import_entry_point
 import '../../main.dart';
 
-class Routes {
+class App {
   final Main main;
 
-  const Routes(this.main);
+  const App(this.main);
 }
