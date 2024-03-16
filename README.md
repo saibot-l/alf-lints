@@ -124,6 +124,12 @@ packages/
 </details>
 
 <details>
+  <summary>avoid_import_feature_from_library</summary>
+
+  - Ensures that libraries don't import features.
+</details>
+
+<details>
   <summary>group_alf</summary>
 
   - Ensures that files are placed and named according to the alf-linting conventions. Files should either

@@ -18,13 +18,23 @@ void main() {
       },
     );
 
-    test('should return domain groups', () {
+    test('should return normalized domain groups', () {
       expect(
         getDomainGroups('features/a/b/c.dart', FileDomain.features),
         equals([
           'a',
           'b',
-          'c.dart',
+          'c',
+        ]),
+      );
+    });
+
+    test('should replace only last dart extension', () {
+      expect(
+        getDomainGroups('features/a.dart/b.dart', FileDomain.features),
+        equals([
+          'a.dart',
+          'b',
         ]),
       );
     });
