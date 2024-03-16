@@ -130,6 +130,12 @@ packages/
 </details>
 
 <details>
+  <summary>avoid_import_other_feature_from_feature</summary>
+
+  - Ensures that features don't import other features.
+</details>
+
+<details>
   <summary>group_alf</summary>
 
   - Ensures that files are placed and named according to the alf-linting conventions. Files should either

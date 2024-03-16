@@ -4,6 +4,7 @@ import 'src/features/avoid_import_app_from_feature_lint.dart';
 import 'src/features/avoid_import_app_from_library_lint.dart';
 import 'src/features/avoid_import_entry_point_lint.dart';
 import 'src/features/avoid_import_feature_from_library_lint.dart';
+import 'src/features/avoid_import_feature_from_other_feature.dart';
 import 'src/features/group_alf_lint.dart';
 import 'src/features/group_libraries_lint.dart';
 
@@ -16,6 +17,7 @@ class _AlfLinter extends PluginBase {
         AvoidImportAppFromLibraryLint(),
         AvoidImportEntryPointLint(),
         AvoidImportFeatureFromLibraryLint(),
+        AvoidImportFeatureFromOtherFeatureLint(),
         GroupAlfLint(),
         GroupLibrariesLint(),
       ];
