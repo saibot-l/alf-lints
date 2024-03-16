@@ -7,6 +7,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: dart-lang/setup-dart@v1
+      - name: Install example feature dependencies
+        run: dart pub get
+        working-directory: example/packages/features/example_feature
+      - name: Install example app dependencies
+        run: dart pub get
+        working-directory: example/apps/example_app
       - name: Install dependencies
         run: dart pub get
       - name: Verify formatting
@@ -16,17 +22,12 @@ jobs:
       - name: Run tests
         run: dart test
 
-  test-alf-lint-examples:
+  test-alf-lint-example-app:
     runs-on: ubuntu-latest
 
     defaults:
       run:
-        working-directory: ${{ matrix.package_path }}
-
-    strategy:
-      matrix:
-        package_path:
-          - example/apps/example_app
+        working-directory: example/apps/example_app
 
     steps:
       - uses: actions/checkout@v4
@@ -41,3 +42,25 @@ jobs:
         run: dart analyze --fatal-infos .
       - name: Run custom_lint
         run: custom_lint
+
+  test-alf-lint-example-packages:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ${{ matrix.package_path }}
+
+    strategy:
+      matrix:
+        package_path:
+          - example/packages/features/example_feature
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dart-lang/setup-dart@v1
+      - name: Install dependencies
+        run: dart pub get
+      - name: Verify formatting
+        run: dart format --output=none --set-exit-if-changed .
+      - name: Analyze project source
+        run: dart analyze --fatal-infos .
