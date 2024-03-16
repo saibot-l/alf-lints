@@ -29,7 +29,8 @@ This linter proposes a folder structure containing
 
 - `entry points`:
   - Starting point(s) of the application
-  - Should be named `main.dart`, `main_<flavor>` or `<package-name>.dart`.
+  - Should be named `main.dart`, `main_<flavor>.dart` or `<package-name>.dart`.
+  - Should be placed in the `bin` or `lib` folder.
   - Can not be imported
   - Can only import from
     - `app`
@@ -74,6 +75,10 @@ The actual file structure should look something like this:
 │  │  ├─ libraries/
 │  ├─ <entry-point>.dart
 ```
+
+---
+
+1. Probably you will either have entry point(s) within the `bin` or `lib` folder. Not in both.
 
 ### Monorepo
 
