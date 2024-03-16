@@ -8,6 +8,8 @@ environment:
 dependencies:
   example_feature:
     path: ../../packages/features/example_feature
+  example_library:
+    path: ../../packages/libraries/example_library
 
 dev_dependencies:
   alf_lints:

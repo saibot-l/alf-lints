@@ -49,6 +49,7 @@ jobs:
       matrix:
         package_path:
           - example/packages/features/example_feature
+          - example/packages/libraries/example_library
 
     steps:
       - uses: actions/checkout@v4
