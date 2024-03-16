@@ -103,48 +103,52 @@ packages/
 │  │  │  ├─ <my-library>.dart
 ```
 
+---
+
+1. Top level `apps` folder is optional and can be named however you want. It only makes sense, if you have multiple packages.
+2. Top level `packages` folder is optional and can be named however you want.
+3. It's enough to use this lint within the main application(s). Just make sure you don't accidentally import features from other features or libraries.
+
 ## Lints
 
 <details>
   <summary>avoid_import_app_from_feature</summary>
 
-  - Ensures that features don't import composing app code.
+- Ensures that features don't import composing app code.
 </details>
 
 <details>
   <summary>avoid_import_app_from_library</summary>
 
-  - Ensures that libraries don't import composing app code.
+- Ensures that libraries don't import composing app code.
 </details>
 
 <details>
   <summary>avoid_import_entry_point</summary>
 
-  - Ensures that no code imports entry points.
+- Ensures that no code imports entry points.
 </details>
 
 <details>
   <summary>avoid_import_feature_from_library</summary>
 
-  - Ensures that libraries don't import features.
+- Ensures that libraries don't import features.
 </details>
 
 <details>
   <summary>avoid_import_other_feature_from_feature</summary>
 
-  - Ensures that features don't import other features.
+- Ensures that features don't import other features.
 </details>
 
 <details>
   <summary>group_alf</summary>
 
-  - Ensures that files are placed and named according to the alf-linting conventions. Files should either
-    - be a valid entry point placed in `lib/` or `bin/` directory and named `main.dart`, `main_<flavor>.dart` or `<packageName>.dart`
-    - or placed within the `app`, `libraries` or `features` folder contained in the `lib/` or `lib/src/` folder.
+- Ensures that files are placed and named according to the alf-linting conventions. Files should either - be a valid entry point placed in `lib/` or `bin/` directory and named `main.dart`, `main_<flavor>.dart` or `<packageName>.dart` - or placed within the `app`, `libraries` or `features` folder contained in the `lib/` or `lib/src/` folder.
 </details>
 
 <details>
   <summary>group_libraries</summary>
 
-  - Ensures that files within the `libraries` folder are grouped into another folder.
+- Ensures that files within the `libraries` folder are grouped into another folder.
 </details>
