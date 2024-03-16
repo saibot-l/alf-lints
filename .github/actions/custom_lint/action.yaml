@@ -1,0 +1,12 @@
+name: Custom lint
+description: Activates and runs custom lints
+
+runs:
+  using: composite
+  steps:
+    - name: Activate custom_lint cli
+      shell: bash
+      run: dart pub global activate custom_lint
+    - name: Run custom_lint cli
+      shell: bash
+      run: custom_lint
