@@ -1,0 +1,26 @@
+version: 2
+updates:
+  - package-ecosystem: "pub"
+    directory: "/"
+    reviewers:
+      - "saibot-l"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "pub"
+    directory: "/example/apps/example_app"
+    reviewers:
+      - "saibot-l"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "pub"
+    directory: "/example/packages/features/example_feature"
+    reviewers:
+      - "saibot-l"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "pub"
+    directory: "/example/packages/libraries/example_library"
+    reviewers:
+      - "saibot-l"
+    schedule:
+      interval: "weekly"
