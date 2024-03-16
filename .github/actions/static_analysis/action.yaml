@@ -1,0 +1,28 @@
+name: Static analysis
+description: Verifies formatting and analysis project source
+
+inputs:
+  custom-lint:
+    description: Flag indicating if custom lints should be run. Allowed values are "true" and "false".
+    default: "false"
+    required: false
+
+  working-directory:
+    description: The working-directory to run static analysis on.
+    default: "."
+    required: false
+
+runs:
+  using: composite
+  steps:
+    - name: Verify formatting
+      shell: bash
+      run: dart format --output=none --set-exit-if-changed ${{ inputs.working-directory }}
+    - name: Analyze project source
+      shell: bash
+      run: dart analyze --fatal-infos ${{ inputs.working-directory }}
+    - name: Run custom lints
+      if: ${{ inputs.custom_lint }} == "true"
+      uses: ./.github/actions/custom_lint
+      with:
+        working-directory: ${{ inputs.working-directory }}

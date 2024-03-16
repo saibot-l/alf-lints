@@ -1,6 +1,12 @@
 name: Custom lint
 description: Activates and runs custom lints
 
+inputs:
+  working-directory:
+    description: The working-directory to run custom lints on.
+    default: "."
+    required: false
+
 runs:
   using: composite
   steps:
@@ -9,4 +15,4 @@ runs:
       run: dart pub global activate custom_lint
     - name: Run custom_lint cli
       shell: bash
-      run: custom_lint
+      run: cd ${{ inputs.working-directory }} && custom_lint
