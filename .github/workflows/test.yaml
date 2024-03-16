@@ -15,10 +15,8 @@ jobs:
         working-directory: example/apps/example_app
       - name: Install dependencies
         run: dart pub get
-      - name: Verify formatting
-        run: dart format --output=none --set-exit-if-changed .
-      - name: Analyze project source
-        run: dart analyze --fatal-infos .
+      - name: Run static analysis
+        uses: ./.github/actions/static_analysis
       - name: Run tests
         run: dart test
 
@@ -34,14 +32,11 @@ jobs:
       - uses: dart-lang/setup-dart@v1
       - name: Install dependencies
         run: dart pub get
-      - name: Activate custom_lint cli
-        run: dart pub global activate custom_lint
-      - name: Verify formatting
-        run: dart format --output=none --set-exit-if-changed .
-      - name: Analyze project source
-        run: dart analyze --fatal-infos .
-      - name: Run custom_lint
-        run: custom_lint
+      - name: Run static analysis
+        uses: ./.github/actions/static_analysis
+        with:
+          custom-lint: "true"
+          working-directory: example/apps/example_app
 
   test-alf-lint-example-packages:
     runs-on: ubuntu-latest
@@ -60,7 +55,7 @@ jobs:
       - uses: dart-lang/setup-dart@v1
       - name: Install dependencies
         run: dart pub get
-      - name: Verify formatting
-        run: dart format --output=none --set-exit-if-changed .
-      - name: Analyze project source
-        run: dart analyze --fatal-infos .
+      - name: Run static analysis
+        uses: ./.github/actions/static_analysis
+        with:
+          working-directory: ${{ matrix.package_path }}
