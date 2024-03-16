@@ -1,3 +1,6 @@
+// expect_lint: avoid_import_feature_from_library
+import 'package:example_feature/example_feature.dart';
+
 // expect_lint: avoid_import_entry_point
 import '../../../main.dart';
 // expect_lint: avoid_import_app_from_library
@@ -10,5 +13,7 @@ class LibraryA {
   final PageA pageA;
   final FeatureA featureA;
 
-  const LibraryA(this.main, this.pageA, this.featureA);
+  final ExampleFeature exampleFeature;
+
+  const LibraryA(this.main, this.pageA, this.featureA, this.exampleFeature);
 }
