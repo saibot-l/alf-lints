@@ -103,6 +103,12 @@ packages/
 │  │  │  ├─ <my-library>.dart
 ```
 
+---
+
+1. Top level `apps` folder is optional and can be named however you want. It only makes sense, if you have multiple packages.
+2. Top level `packages` folder is optional and can be named however you want.
+3. It's enough to use this lint within the main application(s). Just make sure you don't accidentally import features from other features or libraries.
+
 ## Lints
 
 <details>
