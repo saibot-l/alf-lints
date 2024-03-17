@@ -1,5 +1,5 @@
 import 'package:alf_lints/src/libraries/file_path/file_domain.dart';
-import 'package:alf_lints/src/libraries/file_path/get_domain_groups.dart';
+import 'package:alf_lints/src/libraries/file_path/utilities/get_domain_groups.dart';
 import 'package:test/test.dart';
 
 void main() {

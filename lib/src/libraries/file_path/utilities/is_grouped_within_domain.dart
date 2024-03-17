@@ -1,4 +1,4 @@
-import 'file_domain.dart';
+import '../file_domain.dart';
 import 'get_domain_groups.dart';
 
 bool isGroupedWithinDomain(String? relativePath, FileDomain domain) =>

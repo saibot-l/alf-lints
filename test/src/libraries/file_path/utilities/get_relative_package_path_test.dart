@@ -1,4 +1,4 @@
-import 'package:alf_lints/src/libraries/file_path/get_relative_package_path.dart';
+import 'package:alf_lints/src/libraries/file_path/utilities/get_relative_package_path.dart';
 import 'package:test/test.dart';
 
 void main() {

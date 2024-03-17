@@ -2,9 +2,7 @@ import 'package:analyzer/error/listener.dart';
 import 'package:custom_lint_builder/custom_lint_builder.dart';
 
 import '../libraries/file_path/file_domain.dart';
-import '../libraries/file_path/get_relative_package_path.dart';
-import '../libraries/file_path/is_entry_point_path.dart';
-import '../libraries/file_path/is_path_of_domain.dart';
+import '../libraries/file_path/file_path.dart';
 
 class GroupAlfLint extends DartLintRule {
   const GroupAlfLint() : super(code: _code);
@@ -25,13 +23,12 @@ Name entry point `main.dart`, `main_<flavor>.dart` or `<package-name>.dart`.''',
     ErrorReporter reporter,
     CustomLintContext context,
   ) {
-    final fullPath = resolver.source.fullName;
-    final relativePath = getRelativePackagePath(fullPath);
-
-    if (isEntryPointPath(fullPath, packageName: context.pubspec.name)) return;
-    if (isPathOfDomain(relativePath, FileDomain.features)) return;
-    if (isPathOfDomain(relativePath, FileDomain.libraries)) return;
-    if (isPathOfDomain(relativePath, FileDomain.app)) return;
+    final package = context.pubspec.name;
+    final sourcePath = FilePath.fromAbsolute(resolver.source.fullName);
+    if (sourcePath.isEntryPointOf(package)) return;
+    if (sourcePath.isPartOf(FileDomain.features)) return;
+    if (sourcePath.isPartOf(FileDomain.libraries)) return;
+    if (sourcePath.isPartOf(FileDomain.app)) return;
 
     bool reported = false;
     context.registry.addAnnotatedNode((node) {
