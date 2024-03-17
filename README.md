@@ -85,34 +85,30 @@ The actual file structure should look something like this:
 It is also possible to structure your project with local packages:
 
 ```
-apps/
-├─ <my-app>/
-│  ├─ bin/
-│  │  ├─ <entry-point>.dart
+<my-app>/
+├─ bin/
+│  ├─ <entry-point>.dart
+├─ lib/
+│  ├─ src/
+│  │  ├─ app/
+│  │  ├─ features/
+│  │  ├─ libraries/
+│  ├─ <entry-point>.dart
+features/
+├─ <my-feature>/
 │  ├─ lib/
 │  │  ├─ src/
-│  │  │  ├─ app/
-│  │  │  ├─ features/
-│  │  │  ├─ libraries/
-│  │  ├─ <entry-point>.dart
-packages/
-├─ features/
-│  ├─ <my-feature>/
-│  │  ├─ lib/
-│  │  │  ├─ src/
-│  │  │  ├─ <my-feature>.dart
-├─ libraries/
-│  ├─ <my-library>/
-│  │  ├─ lib/
-│  │  │  ├─ src/
-│  │  │  ├─ <my-library>.dart
+│  │  ├─ <my-feature>.dart
+libraries/
+├─ <my-library>/
+│  ├─ lib/
+│  │  ├─ src/
+│  │  ├─ <my-library>.dart
 ```
 
 ---
 
-1. Top level `apps` folder is optional and can be named however you want. It only makes sense, if you have multiple packages.
-2. Top level `packages` folder is optional and can be named however you want.
-3. It's enough to use this lint within the main application(s). Just make sure you don't accidentally import features from other features or libraries.
+1. It's enough to use this lint within the main application(s). Just make sure you don't accidentally import features from other features or libraries.
 
 ## Lints
 
