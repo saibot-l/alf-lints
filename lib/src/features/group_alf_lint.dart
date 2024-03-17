@@ -3,6 +3,7 @@ import 'package:custom_lint_builder/custom_lint_builder.dart';
 
 import '../libraries/file_path/file_domain.dart';
 import '../libraries/file_path/file_path.dart';
+import '../libraries/utilities/call_once.dart';
 
 class GroupAlfLint extends DartLintRule {
   const GroupAlfLint() : super(code: _code);
@@ -30,12 +31,11 @@ Name entry point `main.dart`, `main_<flavor>.dart` or `<package-name>.dart`.''',
     if (sourcePath.isPartOf(FileDomain.libraries)) return;
     if (sourcePath.isPartOf(FileDomain.app)) return;
 
-    bool reported = false;
+    final callOnce = CallOnce();
     context.registry.addAnnotatedNode((node) {
-      if (reported) return;
-
-      reporter.reportErrorForNode(code, node);
-      reported = true;
+      callOnce(
+        () => reporter.reportErrorForNode(code, node),
+      );
     });
   }
 }
