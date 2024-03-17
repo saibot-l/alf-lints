@@ -10,8 +10,11 @@ class GroupLibrariesLint extends DartLintRule {
 
   static const _code = LintCode(
     name: 'group_libraries',
-    problemMessage: 'Group libraries.',
-    correctionMessage: 'Group libraries into folders.',
+    problemMessage: '''
+Files inside the "libraries" folder should be grouped within at least one more directory.
+This reduces clutter, promotes modularity, facilitates reusability, and simplifies extraction into a package.''',
+    correctionMessage: '''
+Place the file within a sub-directory of the "libraries" folder.''',
   );
 
   @override

@@ -11,11 +11,12 @@ class GroupAlfLint extends DartLintRule {
   static const _code = LintCode(
     name: 'group_alf',
     problemMessage: '''
-Group files into `app`, `libraries`, `features` folder and some entry point.''',
+Organize files within the "app", "libraries, or "features" folders, or designate them as entry points.
+This helps to keep an organized folder structure.
+''',
     correctionMessage: '''
-Group files into `app/`, `libraries/`, `features/` folders and some entry point.
-Place those folders either at `/lib/` or `/lib/src/`.
-Name entry point `main.dart`, `main_<flavor>.dart` or `<package-name>.dart`.''',
+Place the file within the appropriate "app", "libraries, or "features" folder, or designate it as an entry point.
+Entry points should be prefixed with "main" or named the same as the package and placed directly in the "lib" or "bin" folder.''',
   );
 
   @override
