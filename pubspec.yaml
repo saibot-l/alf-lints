@@ -4,6 +4,10 @@ version: 1.0.0
 homepage: https://github.com/saibot-l/alf-lints
 repository: https://github.com/saibot-l/alf-lints
 issue_tracker: https://github.com/saibot-l/alf-lints/issues
+topics:
+  - app-architecture
+  - folder-structure
+  - lints
 
 environment:
   sdk: ^3.3.1
