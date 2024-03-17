@@ -1,6 +1,7 @@
-String? getRelativePackagePath(String? fullPath) => switch (fullPath) {
-      String() when fullPath.contains('/lib/src/') =>
-        fullPath.split('/lib/src/').last,
-      String() when fullPath.contains('/lib/') => fullPath.split('/lib/').last,
+String? getRelativePackagePath(String? absolutePath) => switch (absolutePath) {
+      String() when absolutePath.contains('/lib/src/') =>
+        absolutePath.split('/lib/src/').last,
+      String() when absolutePath.contains('/lib/') =>
+        absolutePath.split('/lib/').last,
       _ => null,
     };

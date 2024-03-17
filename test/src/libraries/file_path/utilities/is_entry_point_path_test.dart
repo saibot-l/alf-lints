@@ -5,7 +5,7 @@ void main() {
   group('isEntryPointPath', () {
     const packageName = 'some_package_name';
 
-    test('should return `false` when the full path is `null`', () {
+    test('should return `false` when the absolute path is `null`', () {
       expect(
         isEntryPointPath(null, packageName: packageName),
         isFalse,
@@ -13,7 +13,7 @@ void main() {
     });
 
     test(
-        'should return `false` when the full path does not point to a valid entry point',
+        'should return `false` when the absolute path does not point to a valid entry point',
         () {
       expect(
         isEntryPointPath('lib/invalid_filename.dart', packageName: packageName),
@@ -26,7 +26,7 @@ void main() {
     });
 
     test(
-        'should return `true` when the full path points to a valid entry point in `bin`',
+        'should return `true` when the absolute path points to a valid entry point in `bin`',
         () {
       expect(
         isEntryPointPath('bin/main.dart', packageName: packageName),
@@ -43,7 +43,7 @@ void main() {
     });
 
     test(
-        'should return `true` when the full path points to a valid entry point in `lib`',
+        'should return `true` when the absolute path points to a valid entry point in `lib`',
         () {
       expect(
         isEntryPointPath('lib/main.dart', packageName: packageName),

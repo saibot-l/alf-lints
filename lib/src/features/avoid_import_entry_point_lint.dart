@@ -22,7 +22,7 @@ class AvoidImportEntryPointLint extends DartLintRule {
     final package = context.pubspec.name;
 
     context.registry.addImportDirective((node) {
-      final importPath = FilePath.fromAbsolute(node.fullPath);
+      final importPath = FilePath.fromAbsolute(node.absolutePath);
       if (node.isExternalPackageImport) return;
       if (!importPath.isEntryPointOf(package)) return;
 

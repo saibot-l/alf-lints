@@ -3,7 +3,7 @@ import 'package:test/test.dart';
 
 void main() {
   group('getPackageIdentifier', () {
-    test('should return `null` when full path is `null`', () {
+    test('should return `null` when absolute path is `null`', () {
       expect(getPackageIdentifier(null), isNull);
     });
 

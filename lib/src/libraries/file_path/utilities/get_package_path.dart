@@ -1,1 +1,2 @@
-String? getPackagePath(String? fullPath) => fullPath?.split('/lib/').first;
+String? getPackagePath(String? absolutePath) =>
+    absolutePath?.split('/lib/').first;
