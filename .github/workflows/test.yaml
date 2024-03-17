@@ -7,9 +7,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: dart-lang/setup-dart@v1
+      - name: Install example library dependencies
+        run: dart pub get
+        working-directory: example/packages/libraries/example_package_library
       - name: Install example feature dependencies
         run: dart pub get
-        working-directory: example/packages/features/example_feature
+        working-directory: example/packages/features/example_package_feature
       - name: Install example app dependencies
         run: dart pub get
         working-directory: example/apps/example_app
@@ -48,8 +51,8 @@ jobs:
     strategy:
       matrix:
         package_path:
-          - example/packages/features/example_feature
-          - example/packages/libraries/example_library
+          - example/packages/features/example_package_feature
+          - example/packages/libraries/example_package_library
 
     steps:
       - uses: actions/checkout@v4

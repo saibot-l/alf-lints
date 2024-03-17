@@ -2,9 +2,8 @@ import 'package:analyzer/error/listener.dart';
 import 'package:custom_lint_builder/custom_lint_builder.dart';
 
 import '../libraries/file_path/file_domain.dart';
-import '../libraries/file_path/get_relative_package_path.dart';
-import '../libraries/file_path/is_grouped_within_domain.dart';
-import '../libraries/file_path/is_path_of_domain.dart';
+import '../libraries/file_path/file_path.dart';
+import '../libraries/utilities/call_once.dart';
 
 class GroupLibrariesLint extends DartLintRule {
   const GroupLibrariesLint() : super(code: _code);
@@ -21,18 +20,16 @@ class GroupLibrariesLint extends DartLintRule {
     ErrorReporter reporter,
     CustomLintContext context,
   ) {
-    final fullPath = resolver.source.fullName;
-    final relativePath = getRelativePackagePath(fullPath);
+    final sourcePath = FilePath.fromAbsolute(resolver.source.fullName);
 
-    if (!isPathOfDomain(relativePath, FileDomain.libraries)) return;
-    if (isGroupedWithinDomain(relativePath, FileDomain.libraries)) return;
+    if (!sourcePath.isPartOf(FileDomain.libraries)) return;
+    if (sourcePath.isGroupedIn(FileDomain.libraries)) return;
 
-    bool reported = false;
+    final callOnce = CallOnce();
     context.registry.addAnnotatedNode((node) {
-      if (reported) return;
-
-      reporter.reportErrorForNode(code, node);
-      reported = true;
+      callOnce(
+        () => reporter.reportErrorForNode(code, node),
+      );
     });
   }
 }

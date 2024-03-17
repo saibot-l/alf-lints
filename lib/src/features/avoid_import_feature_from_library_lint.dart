@@ -3,9 +3,7 @@ import 'package:custom_lint_builder/custom_lint_builder.dart';
 
 import '../libraries/analyzer/import_directive_x.dart';
 import '../libraries/file_path/file_domain.dart';
-import '../libraries/file_path/get_relative_package_path.dart';
-import '../libraries/file_path/get_main_domain_group.dart';
-import '../libraries/file_path/is_grouped_within_domain.dart';
+import '../libraries/file_path/file_path.dart';
 
 class AvoidImportFeatureFromLibraryLint extends DartLintRule {
   const AvoidImportFeatureFromLibraryLint() : super(code: _code);
@@ -23,15 +21,12 @@ Consider extracting the referenced code into a shared library.''',
     ErrorReporter reporter,
     CustomLintContext context,
   ) {
-    final fullPath = resolver.source.fullName;
-    final relativePath = getRelativePackagePath(fullPath);
-
-    if (!isGroupedWithinDomain(relativePath, FileDomain.libraries)) return;
+    final sourcePath = FilePath.fromAbsolute(resolver.source.fullName);
+    if (!sourcePath.isGroupedIn(FileDomain.libraries)) return;
 
     context.registry.addImportDirective((node) {
-      final importedFeature =
-          getMainDomainGroup(node.relativePath, FileDomain.features);
-
+      final importPath = FilePath.fromRelative(node.relativePath);
+      final importedFeature = importPath.nameIn(FileDomain.features);
       if (importedFeature == null) return;
 
       reporter.reportErrorForNode(code, node);

@@ -1,5 +1,5 @@
-import 'package:example_feature/example_feature.dart';
-import 'package:example_library/example_library.dart';
+import 'package:example_package_feature/example_package_feature.dart';
+import 'package:example_package_library/example_package_library.dart';
 
 import 'src/app/routes.dart';
 import 'src/features/a/feature_a.dart';
@@ -10,14 +10,14 @@ class Main {
   final FeatureA featureA;
   final LibraryA libraryA;
 
-  final ExampleFeature exampleFeature;
-  final ExampleLibrary exampleLibrary;
+  final ExamplePackageFeature examplePackageFeature;
+  final ExamplePackageLibrary examplePackageLibrary;
 
   const Main(
     this.routes,
     this.featureA,
     this.libraryA,
-    this.exampleFeature,
-    this.exampleLibrary,
+    this.examplePackageFeature,
+    this.examplePackageLibrary,
   );
 }

@@ -2,7 +2,7 @@ import 'package:analyzer/error/listener.dart';
 import 'package:custom_lint_builder/custom_lint_builder.dart';
 
 import '../libraries/analyzer/import_directive_x.dart';
-import '../libraries/file_path/is_entry_point_path.dart';
+import '../libraries/file_path/file_path.dart';
 
 class AvoidImportEntryPointLint extends DartLintRule {
   const AvoidImportEntryPointLint() : super(code: _code);
@@ -19,11 +19,12 @@ class AvoidImportEntryPointLint extends DartLintRule {
     ErrorReporter reporter,
     CustomLintContext context,
   ) {
-    final packageName = context.pubspec.name;
+    final package = context.pubspec.name;
 
     context.registry.addImportDirective((node) {
+      final importPath = FilePath.fromAbsolute(node.absolutePath);
       if (node.isExternalPackageImport) return;
-      if (!isEntryPointPath(node.fullPath, packageName: packageName)) return;
+      if (!importPath.isEntryPointOf(package)) return;
 
       reporter.reportErrorForNode(code, node);
     });
