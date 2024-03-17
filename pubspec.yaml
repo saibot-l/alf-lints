@@ -1,7 +1,9 @@
 name: alf_lints
 description: Opinionated Dart lints to maintain a clean application structure.
 version: 1.0.0
+homepage: https://github.com/saibot-l/alf-lints
 repository: https://github.com/saibot-l/alf-lints
+issue_tracker: https://github.com/saibot-l/alf-lints/issues
 
 environment:
   sdk: ^3.3.1
