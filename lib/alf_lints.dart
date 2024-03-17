@@ -8,6 +8,7 @@ import 'src/features/avoid_import_feature_from_other_feature.dart';
 import 'src/features/group_alf_lint.dart';
 import 'src/features/group_libraries_lint.dart';
 
+/// Bootstraps linter.
 PluginBase createPlugin() => _AlfLinter();
 
 class _AlfLinter extends PluginBase {
