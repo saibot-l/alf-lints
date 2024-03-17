@@ -1,6 +1,6 @@
 // expect_lint: group_alf
-import 'package:example_feature/example_feature.dart';
-import 'package:example_library/example_library.dart';
+import 'package:example_package_feature/example_package_feature.dart';
+import 'package:example_package_library/example_package_library.dart';
 
 // expect_lint: avoid_import_entry_point
 import '../../example_app.dart';
@@ -23,8 +23,8 @@ class Other {
   final FeatureA featureA;
   final LibraryA libraryA;
 
-  final ExampleFeature exampleFeature;
-  final ExampleLibrary exampleLibrary;
+  final ExamplePackageFeature examplePackageFeature;
+  final ExamplePackageLibrary examplePackageLibrary;
 
   const Other(
     this.exampleApp,
@@ -34,7 +34,7 @@ class Other {
     this.app,
     this.featureA,
     this.libraryA,
-    this.exampleFeature,
-    this.exampleLibrary,
+    this.examplePackageFeature,
+    this.examplePackageLibrary,
   );
 }

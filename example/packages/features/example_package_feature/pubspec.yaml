@@ -1,5 +1,5 @@
-name: example_library
-description: Library example for alf-lints.
+name: example_package_feature
+description: Feature example for alf-lints.
 publish_to: 'none'
 
 environment:
