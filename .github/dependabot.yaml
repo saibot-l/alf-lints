@@ -13,13 +13,13 @@ updates:
     schedule:
       interval: "weekly"
   - package-ecosystem: "pub"
-    directory: "/example/packages/features/example_feature"
+    directory: "/example/packages/features/example_package_feature"
     reviewers:
       - "saibot-l"
     schedule:
       interval: "weekly"
   - package-ecosystem: "pub"
-    directory: "/example/packages/libraries/example_library"
+    directory: "/example/packages/libraries/example_package_library"
     reviewers:
       - "saibot-l"
     schedule:
