@@ -10,8 +10,11 @@ class AvoidImportAppFromLibraryLint extends DartLintRule {
 
   static const _code = LintCode(
     name: 'avoid_import_app_from_library',
-    problemMessage: 'Avoid app import from library.',
+    problemMessage: '''
+Avoid importing app code from libraries.
+App code typically composes features and libraries and could tend to circular dependencies when imported by a library.''',
     correctionMessage: '''
+Refactor to not depend on code within the "app" folder.
 Consider extracting the referenced code into a shared library.''',
   );
 

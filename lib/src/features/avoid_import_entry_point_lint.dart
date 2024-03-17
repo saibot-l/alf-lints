@@ -9,8 +9,8 @@ class AvoidImportEntryPointLint extends DartLintRule {
 
   static const _code = LintCode(
     name: 'avoid_import_entry_point',
-    problemMessage: 'Avoid entry point import.',
-    correctionMessage: 'Only import from `app`, `libraries` or `features`.',
+    problemMessage: 'Avoid importing entry points.',
+    correctionMessage: 'Refactor to not depend on an entry point.',
   );
 
   @override

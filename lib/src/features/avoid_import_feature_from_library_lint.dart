@@ -10,9 +10,12 @@ class AvoidImportFeatureFromLibraryLint extends DartLintRule {
 
   static const _code = LintCode(
     name: 'avoid_import_feature_from_library',
-    problemMessage: 'Avoid feature import from library.',
+    problemMessage: '''
+Avoid importing features from libraries.
+Features typically depend on libraries and could tend to circular dependencies when imported by a library.''',
     correctionMessage: '''
-Consider extracting the referenced code into a shared library.''',
+Refactor to not depend on the feature.
+Consider putting shared functionality into a shared library.''',
   );
 
   @override
