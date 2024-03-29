@@ -14,5 +14,5 @@ dependencies:
 dev_dependencies:
   alf_lints:
     path: ../../..
-  custom_lint: ^0.6.2
+  custom_lint: ^0.6.4
   lints: ^3.0.0
