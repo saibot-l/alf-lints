@@ -16,9 +16,7 @@ This helps to keep an organized folder structure.
 ''',
     correctionMessage: '''
 Place the file within the appropriate "app", "libraries, or "features" folder, or designate it as an entry point.
-Entry points can be placed within the "bin" or "lib" folder.
-If placed in `lib` folder, it should be prefixed with "main" or named the same as the package.
-If placed in `bin` folder, it can be named as desired.''',
+Entry points are directly placed within the "bin" or "lib" folder.''',
   );
 
   @override

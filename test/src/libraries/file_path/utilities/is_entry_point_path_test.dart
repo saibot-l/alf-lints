@@ -16,14 +16,6 @@ void main() {
         'should return `false` when the absolute path does not contain package name',
         () {
       expect(
-        isEntryPointPath('lib/src/main.dart', packageName: packageName),
-        isFalse,
-      );
-      expect(
-        isEntryPointPath('lib/custom.dart', packageName: packageName),
-        isFalse,
-      );
-      expect(
         isEntryPointPath('lib/main.dart', packageName: packageName),
         isFalse,
       );
@@ -42,13 +34,6 @@ void main() {
       expect(
         isEntryPointPath(
           '$packageName/lib/src/main.dart',
-          packageName: packageName,
-        ),
-        isFalse,
-      );
-      expect(
-        isEntryPointPath(
-          '$packageName/lib/custom.dart',
           packageName: packageName,
         ),
         isFalse,
@@ -108,6 +93,13 @@ void main() {
       expect(
         isEntryPointPath(
           '$packageName/lib/$packageName.dart',
+          packageName: packageName,
+        ),
+        isTrue,
+      );
+      expect(
+        isEntryPointPath(
+          '$packageName/lib/custom.dart',
           packageName: packageName,
         ),
         isTrue,
