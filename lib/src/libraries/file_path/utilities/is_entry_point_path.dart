@@ -3,7 +3,7 @@ bool isEntryPointPath(
   required String packageName,
 }) {
   if (absolutePath == null) return false;
-  return RegExp('bin/(.*?).dart\$').hasMatch(absolutePath) ||
-      RegExp('lib/(main|main_.*?|$packageName).dart\$')
+  return RegExp('$packageName/bin/(.*?).dart\$').hasMatch(absolutePath) ||
+      RegExp('$packageName/lib/(main|main_.*?|$packageName).dart\$')
           .hasMatch(absolutePath);
 }

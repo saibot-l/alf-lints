@@ -13,7 +13,7 @@ void main() {
     });
 
     test(
-        'should return `false` when the absolute path does not point to a valid entry point',
+        'should return `false` when the absolute path does not contain package name',
         () {
       expect(
         isEntryPointPath('lib/src/main.dart', packageName: packageName),
@@ -23,25 +23,67 @@ void main() {
         isEntryPointPath('lib/custom.dart', packageName: packageName),
         isFalse,
       );
+      expect(
+        isEntryPointPath('lib/main.dart', packageName: packageName),
+        isFalse,
+      );
+    });
+
+    test(
+        'should return `false` when the absolute path does not point to a valid entry point',
+        () {
+      expect(
+        isEntryPointPath(
+          '$packageName/lib/bin/main.dart',
+          packageName: packageName,
+        ),
+        isFalse,
+      );
+      expect(
+        isEntryPointPath(
+          '$packageName/lib/src/main.dart',
+          packageName: packageName,
+        ),
+        isFalse,
+      );
+      expect(
+        isEntryPointPath(
+          '$packageName/lib/custom.dart',
+          packageName: packageName,
+        ),
+        isFalse,
+      );
     });
 
     test(
         'should return `true` when the absolute path points to a valid entry point in `bin`',
         () {
       expect(
-        isEntryPointPath('bin/main.dart', packageName: packageName),
+        isEntryPointPath(
+          '$packageName/bin/main.dart',
+          packageName: packageName,
+        ),
         isTrue,
       );
       expect(
-        isEntryPointPath('bin/main_dev.dart', packageName: packageName),
+        isEntryPointPath(
+          '$packageName/bin/main_dev.dart',
+          packageName: packageName,
+        ),
         isTrue,
       );
       expect(
-        isEntryPointPath('bin/$packageName.dart', packageName: packageName),
+        isEntryPointPath(
+          '$packageName/bin/$packageName.dart',
+          packageName: packageName,
+        ),
         isTrue,
       );
       expect(
-        isEntryPointPath('bin/custom.dart', packageName: packageName),
+        isEntryPointPath(
+          '$packageName/bin/custom.dart',
+          packageName: packageName,
+        ),
         isTrue,
       );
     });
@@ -50,15 +92,24 @@ void main() {
         'should return `true` when the absolute path points to a valid entry point in `lib`',
         () {
       expect(
-        isEntryPointPath('lib/main.dart', packageName: packageName),
+        isEntryPointPath(
+          '$packageName/lib/main.dart',
+          packageName: packageName,
+        ),
         isTrue,
       );
       expect(
-        isEntryPointPath('lib/main_dev.dart', packageName: packageName),
+        isEntryPointPath(
+          '$packageName/lib/main_dev.dart',
+          packageName: packageName,
+        ),
         isTrue,
       );
       expect(
-        isEntryPointPath('lib/$packageName.dart', packageName: packageName),
+        isEntryPointPath(
+          '$packageName/lib/$packageName.dart',
+          packageName: packageName,
+        ),
         isTrue,
       );
     });
