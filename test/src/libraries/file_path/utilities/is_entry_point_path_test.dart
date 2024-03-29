@@ -16,11 +16,11 @@ void main() {
         'should return `false` when the absolute path does not point to a valid entry point',
         () {
       expect(
-        isEntryPointPath('lib/invalid_filename.dart', packageName: packageName),
+        isEntryPointPath('lib/src/main.dart', packageName: packageName),
         isFalse,
       );
       expect(
-        isEntryPointPath('lib/src/main.dart', packageName: packageName),
+        isEntryPointPath('lib/custom.dart', packageName: packageName),
         isFalse,
       );
     });
@@ -38,6 +38,10 @@ void main() {
       );
       expect(
         isEntryPointPath('bin/$packageName.dart', packageName: packageName),
+        isTrue,
+      );
+      expect(
+        isEntryPointPath('bin/custom.dart', packageName: packageName),
         isTrue,
       );
     });

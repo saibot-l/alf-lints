@@ -29,8 +29,9 @@ This linter proposes a folder structure containing
 
 - `entry points`:
   - Starting point(s) of the application
-  - Should be named `main.dart`, `main_<flavor>.dart` or `<package-name>.dart`.
   - Should be placed in the `bin` or `lib` folder.
+    - If placed in `lib` folder, it should be named `main.dart`, `main_<flavor>.dart` or `<package-name>.dart`
+    - If placed in `bin` folder, it can be named as desired
   - Can not be imported
   - Can only import from
     - `app`
