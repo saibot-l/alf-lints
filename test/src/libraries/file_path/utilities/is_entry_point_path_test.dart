@@ -3,7 +3,7 @@ import 'package:test/test.dart';
 
 void main() {
   group('isEntryPointPath', () {
-    const packageName = 'some_package_name';
+    const packageName = 'some_package-name';
 
     test('should return `false` when the absolute path is `null`', () {
       expect(
