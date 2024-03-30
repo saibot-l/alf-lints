@@ -68,16 +68,16 @@ The actual file structure should look something like this:
 ├─ bin/
 │  ├─ <entry-point>.dart
 ├─ lib/
-│  ├─ src/
-│  │  ├─ app/
-│  │  ├─ features/
-│  │  ├─ libraries/
+│  ├─ app/
+│  ├─ features/
+│  ├─ libraries/
 │  ├─ <entry-point>.dart
 ```
 
 ---
 
 1. Probably you will either have entry point(s) within the `bin` or `lib` folder. Not in both.
+2. You can also nest `app`, `features` and `libraries` in a `src` folder.
 
 ### Monorepo
 
@@ -88,10 +88,9 @@ It is also possible to structure your project with local packages:
 ├─ bin/
 │  ├─ <entry-point>.dart
 ├─ lib/
-│  ├─ src/
-│  │  ├─ app/
-│  │  ├─ features/
-│  │  ├─ libraries/
+│  ├─ app/
+│  ├─ features/
+│  ├─ libraries/
 │  ├─ <entry-point>.dart
 features/
 ├─ <my-feature>/
@@ -108,6 +107,7 @@ libraries/
 ---
 
 1. It's enough to use this lint within the main application(s). Just make sure you don't accidentally import features from other features or libraries.
+2. You can also nest `app`, `features` and `libraries` in a `src` folder.
 
 ## Lints
 
