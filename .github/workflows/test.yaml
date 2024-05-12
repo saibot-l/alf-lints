@@ -13,7 +13,6 @@ jobs:
         dart_sdk:
           - 3.1
           - stable
-          - beta
 
     steps:
       - uses: actions/checkout@v4
@@ -44,7 +43,6 @@ jobs:
         dart_sdk:
           - 3.1
           - stable
-          - beta
 
     defaults:
       run:
@@ -71,7 +69,6 @@ jobs:
         dart_sdk:
           - 3.1
           - stable
-          - beta
         package_path:
           - example/packages/features/example_package_feature
           - example/packages/libraries/example_package_library
