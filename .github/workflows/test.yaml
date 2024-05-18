@@ -11,7 +11,7 @@ jobs:
     strategy:
       matrix:
         dart_sdk:
-          - 3.3
+          - 3.4
           - stable
 
     steps:
@@ -41,7 +41,7 @@ jobs:
     strategy:
       matrix:
         dart_sdk:
-          - 3.3
+          - 3.4
           - stable
 
     defaults:
@@ -67,7 +67,7 @@ jobs:
     strategy:
       matrix:
         dart_sdk:
-          - 3.3
+          - 3.4
           - stable
         package_path:
           - example/packages/features/example_package_feature
