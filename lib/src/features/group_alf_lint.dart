@@ -35,7 +35,7 @@ Entry points are directly placed within the "bin" or "lib" folder.''',
     final callOnce = CallOnce();
     context.registry.addAnnotatedNode((node) {
       callOnce(
-        () => reporter.reportErrorForNode(code, node),
+        () => reporter.atNode(node, code),
       );
     });
   }

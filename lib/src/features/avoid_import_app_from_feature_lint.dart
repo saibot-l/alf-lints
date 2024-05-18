@@ -31,7 +31,7 @@ Consider extracting the referenced code into the current feature or a shared lib
       final importPath = FilePath.fromRelative(node.relativePath);
       if (!importPath.isPartOf(FileDomain.app)) return;
 
-      reporter.reportErrorForNode(code, node);
+      reporter.atNode(node, code);
     });
   }
 }

@@ -26,7 +26,7 @@ class AvoidImportEntryPointLint extends DartLintRule {
       if (node.isExternalPackageImport) return;
       if (!importPath.isEntryPointOf(package)) return;
 
-      reporter.reportErrorForNode(code, node);
+      reporter.atNode(node, code);
     });
   }
 }
