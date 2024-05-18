@@ -33,7 +33,7 @@ Consider putting shared functionality into a shared library.''',
       if (importedFeature == null) return;
       if (feature == importedFeature) return;
 
-      reporter.reportErrorForNode(code, node);
+      reporter.atNode(node, code);
     });
   }
 }

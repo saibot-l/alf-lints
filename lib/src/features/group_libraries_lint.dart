@@ -31,7 +31,7 @@ Place the file within a sub-directory of the "libraries" folder.''',
     final callOnce = CallOnce();
     context.registry.addAnnotatedNode((node) {
       callOnce(
-        () => reporter.reportErrorForNode(code, node),
+        () => reporter.atNode(node, code),
       );
     });
   }

@@ -32,7 +32,7 @@ Consider putting shared functionality into a shared library.''',
       final importedFeature = importPath.nameIn(FileDomain.features);
       if (importedFeature == null) return;
 
-      reporter.reportErrorForNode(code, node);
+      reporter.atNode(node, code);
     });
   }
 }
